@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MpfApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MpfApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(MpfApplication.class, args);
+  }
 }

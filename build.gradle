@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.1'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id "com.diffplug.spotless" version "6.12.0"
 }
 
 group = 'io.github.sd3v'
@@ -33,4 +34,15 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+spotless {
+	java {
+		target(fileTree(rootDir) {
+			include("src/**/*.java")
+			exclude("src/jooq")
+		})
+		removeUnusedImports()
+		googleJavaFormat("1.15.0")
+	}
 }
