@@ -13,4 +13,8 @@ public record Budget(YearMonth period, Integer userId, List<Income> ins, List<Ou
   public BigDecimal totalOutcome() {
     return outs.stream().map(Outcome::amount).reduce(BigDecimal.ZERO, BigDecimal::add);
   }
+
+  public BigDecimal balance() {
+    return totalIncome().subtract(totalOutcome());
+  }
 }

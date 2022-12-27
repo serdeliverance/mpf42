@@ -40,4 +40,22 @@ class BudgetTest {
 
     assertEquals(BigDecimal.valueOf(800), result);
   }
+
+  @Test
+  public void calculateBalance() {
+    var budget =
+            new Budget(
+                    YearMonth.now(),
+                    1,
+                    List.of(
+                            new Income("bank", BigDecimal.valueOf(3000)),
+                            new Income("hand", BigDecimal.valueOf(500))),
+                    List.of(
+                            new Outcome("self", BigDecimal.valueOf(500)),
+                            new Outcome("german classes", BigDecimal.valueOf(300))));
+
+    var result = budget.balance();
+
+    assertEquals(BigDecimal.valueOf(2700), result);
+  }
 }
